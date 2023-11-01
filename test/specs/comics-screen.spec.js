@@ -128,5 +128,15 @@ describe('Testes da tela de Quadrinhos', () => {
         await expect(textValue).toBe("Total: R$ 82.97");
         
     })
+
+    it.only('Acessar aba e visualizar todos os quadrinhos de todos os personagens, após pesquisar por um quadrinho, adicioná-lo ao carrinho e voltar à tela de quadrinhos', async () => {
+        await comicsScreen.searchComics.addValue('deadpool');
+        await comicsScreen.deadpoolComic.click();
+        await comicsScreen.leaveComic.click();
+
+        const fantasticFourImg = comicsScreen.fantasticFourImg;
+
+        await expect(fantasticFourImg).toBeDisplayed();
+    })
     
 })
