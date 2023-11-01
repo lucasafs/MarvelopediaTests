@@ -26,6 +26,10 @@ class ProfileScreen {
     get logoutUser() {
         return $('//android.view.View[@text="Logout"]');
     }
+
+    get about() {
+        return $('//android.view.View[@text="Sobre"]');
+    }
 }
 
 module.exports = new ProfileScreen();

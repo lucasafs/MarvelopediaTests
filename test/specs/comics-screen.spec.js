@@ -1,4 +1,3 @@
-const { text, execute } = require("wd/lib/commands");
 const comicsScreen = require("../screenobjects/comics.screen");
 const homeScreen = require("../screenobjects/home.screen");
 
@@ -15,7 +14,7 @@ describe('Testes da tela de Quadrinhos', () => {
         await driver.activateApp('io.ionic.starter');
     })
 
-    xit('Comprar um Quadrinho, inserindo uma palavra-chave', async () => {
+    it('Comprar um Quadrinho, inserindo uma palavra-chave', async () => {
 
         await comicsScreen.searchComics.addValue('deadpool');
         await comicsScreen.deadpoolComic.click();
@@ -31,7 +30,7 @@ describe('Testes da tela de Quadrinhos', () => {
         expect(await comicsScreen.purchaseMessage).toBeDisplayed();
     })
 
-    xit('Pesquisar Herói para ver sua descrição e quadrinhos em que o mesmo participa.', async () => {
+    it('Pesquisar Herói para ver sua descrição e quadrinhos em que o mesmo participa.', async () => {
         await comicsScreen.herosBar.click();
         await comicsScreen.searchHeros.addValue('spider-man');
 
@@ -41,7 +40,7 @@ describe('Testes da tela de Quadrinhos', () => {
         await expect($('//android.view.View[@text="Spider-Man (Peter Parker)"]')).toExist();
     })
 
-    xit('Comprar um Quadrinho sem buscar por palavra-chave', async () => {
+    it('Comprar um Quadrinho sem buscar por palavra-chave', async () => {
 
         await(10000);
         await comicsScreen.fantasticFourImg.click();
@@ -57,7 +56,7 @@ describe('Testes da tela de Quadrinhos', () => {
         expect(await comicsScreen.purchaseMessage).toBeDisplayed();
     })
 
-    xit('Adicionando quadrinhos diferentes e realizando a compra acessando o carrinho', async () => {
+    it('Adicionando quadrinhos diferentes e realizando a compra acessando o carrinho', async () => {
         await comicsScreen.fantasticFourImg.click();
         await comicsScreen.plusBtn.click();
         await comicsScreen.addBtn.click();

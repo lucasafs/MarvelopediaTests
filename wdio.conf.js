@@ -26,7 +26,10 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs/comics-screen.spec.js'
+        //'./test/specs/profile-screen.spec.js',
+        //'./test/specs/createuser-screen.spec.js',
+        //'./test/specs/home-screen.spec.js'
+        './test/specs/comics-screen.spec.js',
     ],
     // Patterns to exclude.
     exclude: [

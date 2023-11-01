@@ -17,7 +17,8 @@ describe('Testes da aba perfil do Usuário', () => {
     it('Verificar pedidos do usuário', async () => {
         await profileScreen.orders.click();
 
-        expect($('//android.view.View[@text="Pedidos"]')).toExist();
+        const comic = await $('//android.view.View[@text="Deadpool"]');
+        await expect(comic).toExist();
     })
 
     it('Tentar adicionar uma nova senha com menos de 6 caracteres', async () => {
@@ -40,7 +41,7 @@ describe('Testes da aba perfil do Usuário', () => {
         expect(await $('//android.view.View[@text="As senhas não são iguais"]')).toBeDisplayed();
     })
 
-    it.only('Logout do usuário através da aba perfil', async () => {
+    it('Logout do usuário através da aba perfil', async () => {
         await profileScreen.logoutUser.click();
 
         expect(await $('//android.view.View[@resource-id="alert-14-msg"]')).toBeDisplayed();
@@ -59,5 +60,4 @@ describe('Testes da aba perfil do Usuário', () => {
 
         expect(await $('//android.view.View[@text="Mudar Senha"]')).toExist();
     })
-
 })

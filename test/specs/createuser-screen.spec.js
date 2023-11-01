@@ -3,19 +3,15 @@ const homeScreen = require("../screenobjects/home.screen");
 
 describe('Testes da tela de criação de usuário', () => {
 
-    before(async () => {
-        await homeScreen.createAccountBtn.click();
-    })
-
-    beforeEach(async () => {
+    afterEach(async () => {
         await driver.terminateApp('io.ionic.starter');
-        await driver.installApp('/home/esilva/Documents/TestMarvelopedia/app/android/marvelopedia.apk');
         await driver.activateApp('io.ionic.starter');
     });
     
-    it.only('Cadastro de Usuario com dados válidos', async () => {
+    xit('Cadastro de Usuario com dados válidos', async () => {
+        await homeScreen.createAccountBtn.click();
 
-        await createuserScreen.emailField.addValue('lucas40@gmail.com');
+        await createuserScreen.emailField.addValue('lucas673@gmail.com');
         await createuserScreen.passwordField.addValue('123456');
         await createuserScreen.repeatedPassword.addValue('123456');
 
@@ -26,9 +22,10 @@ describe('Testes da tela de criação de usuário', () => {
 
     });
 
-    xit('Cadastro de Usuario com e-mail já cadastrado', async () => {
+    it('Cadastro de Usuario com e-mail já cadastrado', async () => {
+        await homeScreen.createAccountBtn.click();
 
-        await createuserScreen.emailField.addValue('lucas94@gmail.com');
+        await createuserScreen.emailField.addValue('lucas51@gmail.com');
         await createuserScreen.passwordField.addValue('123456');
         await createuserScreen.repeatedPassword.addValue('123456');
 
@@ -38,8 +35,9 @@ describe('Testes da tela de criação de usuário', () => {
         await expect(message).toExist();
     });
 
-    xit('Cadastro de Usuario com e-mail em formato errado', async () => {
-
+    it('Cadastro de Usuario com e-mail em formato errado', async () => {
+        await homeScreen.createAccountBtn.click();
+        
         await createuserScreen.emailField.addValue('lucass');
         await createuserScreen.passwordField.addValue('123456');
         await createuserScreen.repeatedPassword.addValue('123456');
@@ -51,6 +49,7 @@ describe('Testes da tela de criação de usuário', () => {
     });
 
     it('Cadastro de Usuario com senha menor do que 6 caracteres', async () => {
+        await homeScreen.createAccountBtn.click();
 
         await createuserScreen.emailField.addValue('lucas30@gmail.com');
         await createuserScreen.passwordField.addValue('12345');
@@ -63,6 +62,7 @@ describe('Testes da tela de criação de usuário', () => {
     });
 
     it('Cadastro de usuário com os campos Senha e Repita Senha diferentes', async () => {
+        await homeScreen.createAccountBtn.click();
 
         await createuserScreen.emailField.addValue('lucas30@gmail.com');
         await createuserScreen.passwordField.addValue('123456');
@@ -72,6 +72,5 @@ describe('Testes da tela de criação de usuário', () => {
 
         const message = await $('//android.view.View[@text="As senhas são diferentes! "]');
         await expect(message).toExist();
-        driver.deleteSession()
     });
 })

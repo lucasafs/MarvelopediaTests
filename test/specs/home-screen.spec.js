@@ -4,7 +4,7 @@ const homeScreen = require("../screenobjects/home.screen");
 describe('Testes para login do usuário na página inicial', () => {
     
     it('Login com email não cadastrado', async () => {
-        await homeScreen.emailField.addValue('lucas22@gmail.com');
+        await homeScreen.emailField.addValue('lucas773@gmail.com');
         await homeScreen.passwordField.addValue('123456');
 
         await homeScreen.loginBtn.click();
@@ -44,18 +44,16 @@ describe('Testes para login do usuário na página inicial', () => {
             attempt += 1;
         }
 
-        //assert
         const message = await $('//android.view.View[@text="Error: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later."]');
         await expect(message).toExist();
     });
 
     it('Login com entradas válidas', async () => {
-        await homeScreen.emailField.addValue('lucas3@gmail.com');
+        await homeScreen.emailField.addValue('lucas@gmail.com');
         await homeScreen.passwordField.addValue('123456');
 
         await homeScreen.loginBtn.click();
 
-        //assert
         const comics = await comicsScreen.comicsText
         await expect(comics).toExist();
     });
