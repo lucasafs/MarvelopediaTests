@@ -1,5 +1,5 @@
 # MARVELOPÉDIA - DESAFIO QA ENGINEER 1
-# Ainda em desenvolvimento, tenho até o fim do dia para terminar.
+
 
 # Plano de teste e abordagem utilizada
   -  Para testar o Marvelopédia, decidi utilizar o Appium e WebDriverIO como principais ferramentas de teste. Além disso, para facilitar a reutilização de código, manutenibilidade e legibilidade, optei por usar o padrão de design Page Object Model. O objetivo foi testar todo o fluxo de ações do usuário, desde o seu cadastro até o login, compra de quadrinhos, alteração de senha, etc.
